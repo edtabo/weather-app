@@ -14,7 +14,7 @@ export const Weather = ({ data }: Props) => {
 
   return (
     <>
-      <div className="max-w-xs overflow-hidden rounded-lg shadow-lg bg-white mx-auto w-[70%]">
+      <div className="max-w-xs overflow-hidden rounded-lg shadow-lg bg-white mx-auto w-full lg:w-[70%]">
         <div
           className="flex items-end justify-end h-32 p-4 bg-center bg-cover"
           style={{
