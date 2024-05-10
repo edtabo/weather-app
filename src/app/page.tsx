@@ -29,17 +29,19 @@ export default function Home() {
   const {
     register,
     getValues,
+    setValue,
     formState: { errors, isValid },
   } = useForm<FormData>({
     resolver: yupResolver(formSchema) as Resolver<FormData>,
   });
 
-  const handgleOnClick = async (search: string) => {
-    if (typeof search === "string") {
+  const handgleOnClick = async (term: string) => {
+    if (typeof term === "string") {
+      setValue("term", term);
       try {
         setData(undefined);
         setLoading(true);
-        const req = await request({ url: `${API_URL}${search}` });
+        const req = await request({ url: `${API_URL}${term}` });
 
         if (!req.error && req.data) {
           add(req?.data.data[0].city_name);
@@ -86,7 +88,7 @@ export default function Home() {
           {loading && <Spinner />}
         </div>
 
-        <div className="flex justify-center gap-4 py-4 overflow-x-auto">
+        <div className="flex justify-center gap-4 py-4 overflow-x-auto mb-10">
           {cities.map((item) => (
             <Badge handle={handgleOnClick} key={item} label={item} />
           ))}
