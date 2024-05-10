@@ -72,7 +72,7 @@ export default function Home() {
             {...register("term")}
             type="text"
             className="w-full bg-app-grey-900 flex bg-transparent pl-2 text-app-grey-100 outline-0"
-            placeholder="Search name movie or select options"
+            placeholder="Ingrese una ciudad para buscar su estado del clima"
           />
           {isValid && !loading && (
             <button
@@ -86,7 +86,7 @@ export default function Home() {
           {loading && <Spinner />}
         </div>
 
-        <div className="flex justify-center gap-4 py-4">
+        <div className="flex justify-center gap-4 py-4 overflow-x-auto">
           {cities.map((item) => (
             <Badge handle={handgleOnClick} key={item} label={item} />
           ))}
@@ -96,37 +96,5 @@ export default function Home() {
       </div>
       <ToastContainer />
     </main>
-
-    // <main className="flex items-center justify-center min-h-screen bg-app-green-default">
-    //   <div className="flex items-center flex-col w-[80%]">
-    //     <div className="flex rounded-full items-center bg-app-grey-900 px-2 w-full max-w-[600px] h-[56px] py-2 shadow-lg shadow-app-grey-900">
-    //       <input
-    //         {...register("term")}
-    //         type="text"
-    //         className="w-full bg-app-grey-900 flex bg-transparent pl-2 text-app-grey-100 outline-0"
-    //         placeholder="Search name movie or select options"
-    //       />
-    //       {isValid && !loading && (
-    //         <button
-    //           type="submit"
-    //           className="relative p-2 bg-app-grey-900 rounded-full text-white"
-    //           onClick={(e) => handgleOnClick(getValues("term"))}
-    //         >
-    //           <SearchIcon className="text-2xl" />
-    //         </button>
-    //       )}
-    //       {loading && <Spinner />}
-    //     </div>
-
-    //     <div className="flex justify-center gap-4 py-4">
-    //       {cities.map((item) => (
-    //         <Badge handle={handgleOnClick} key={item} label={item} />
-    //       ))}
-    //     </div>
-
-    //     {data && <Weather data={data} />}
-    //   </div>
-    //   <ToastContainer />
-    // </main>
   );
 }
