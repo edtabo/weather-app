@@ -13,7 +13,7 @@ import { CitiesStore, FormData, WeatherItem } from "@/interfaces";
 import { useCitiesStore } from "@/store/useCitiesStore";
 import { request } from "@/utils/request";
 
-export const formSchema = yup.object().shape({
+const formSchema = yup.object().shape({
   term: yup.string().matches(STRING_REGEX).min(4).required(),
 });
 
