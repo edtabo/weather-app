@@ -21,6 +21,7 @@ export const Weather = ({ data }: Props) => {
             backgroundImage: `url(${data.img})`,
           }}
         >
+          <p>feature/101</p>
           <p className="px-2 py-1 text-sm tracking-widest uppercase bg-opacity-75 rounded shadow-lg bg-white">
             {`${data.city}, ${data.country}`}
           </p>
